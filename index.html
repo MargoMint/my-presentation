@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"
+    />
+
+    <title>reveal.js</title>
+
+    <link rel="stylesheet" href="dist/reset.css" />
+    <link rel="stylesheet" href="dist/reveal.css" />
+    <link rel="stylesheet" href="dist/theme/black.css" />
+
+    <!-- Theme used for syntax highlighted code -->
+    <link rel="stylesheet" href="plugin/highlight/monokai.css" />
+  </head>
+  <body>
+    <div class="reveal">
+      <div class="slides">
+        <section
+          data-markdown
+          data-background-gradient="radial-gradient(circle,rgba(235, 235, 235, 0.96) 0%, rgba(255, 241, 31, 1) 57%)"
+        >
+          <textarea data-template>
+          ## JSON Isn't Perfect: Exploring Its Origins, Limitations, and Modern Alternatives
+          The presentation was prepared by Marharyta Shyshkavets (MargoMint)
+  				</textarea
+          >
+        </section>
+
+        <section data-markdown>
+          <textarea data-template>
+						## Agenda
+				
+						1. History of JSON (Why JSON Became Popular, JSON vs XML)
+						2. JSON’s Limitations
+						3. Modern Alternatives (YAML and TOML)
+					</textarea
+          >
+        </section>
+
+        <section data-markdown>
+          <textarea data-template>
+            ## 1. History of JSON
+- <span class="fragment">Created by Douglas Crockford</span>
+- <span class="fragment">Originally an alternative to XML</span>
+- <span class="fragment">Born from experiments with JS object literals</span>
+- <span class="fragment">First success: quoting all keys</span>
+- <span class="fragment">Made simple on purpose</span>
+- <span class="fragment">Published at JSON.org</span>
+          </textarea>
+        </section>
+
+        <section>
+          <section>
+            <h3 style="text-align: center">Before: No quotes (didn't work)</h3>
+            <pre><code>
+				document.domain = 'fudco';
+				parent.session.receive({ 
+						to: "session",   
+						do: "test",
+						text: "Hello world" 
+				})
+						</code></pre>
+          </section>
+
+          <section>
+            <h3 style="text-align: center">After: Added quotes (worked)</h3>
+            <pre><code>
+				document.domain = 'fudco';
+				parent.session.receive({ 
+						"to": "session",   
+						"do": "test",
+						"text": "Hello world" 
+				})
+						</code></pre>
+          </section>
+        </section>
+
+        <section data-markdown>
+          <textarea data-template>
+				## Why Did JSON Become So Popular?
+				</textarea
+          >
+        </section>
+
+        <section>
+          <section>
+            <h2>JSON vs XML Popularity</h2>
+            <img
+              src="./img/Google-trends.png"
+              alt="Google Trends: JSON vs XML"
+              style="display: block; margin: 1rem auto; max-width: 80%"
+            />
+            <p style="text-align: center; margin-top: 1rem">
+              Trends data from 2004 to 2025 (source: Google Trends)
+            </p>
+          </section>
+        </section>
+
+        <section data-markdown>
+          <textarea data-template>
+				## Quick Summary
+				#### Why did JSON become better than XML
+				
+1. <span class="fragment">Simpler and easier to read</span>
+2. <span class="fragment">Faster to parse</span>
+3. <span class="fragment">Works naturally with JavaScript</span>
+4. <span class="fragment">Lightweight and flexible</span>
+					</textarea
+          >
+        </section>
+
+        <section data-markdown>
+          <textarea data-template>
+            ## 2. JSON’s Limitations
+- <span class="fragment">JSON only supports very basic data types</span>
+- <span class="fragment">JSON doesn't allow comments</span>
+- <span class="fragment">JSON can get very repetitive and heavy</span>
+- <span class="fragment">Tiny mistake like a missing quote or comma will break the whole thing</span>
+          </textarea>
+        </section>
+
+        <section>
+          <h2 style="text-align: center">3. Modern Alternatives</h2>
+          <div
+            style="
+              display: flex;
+              justify-content: center;
+              gap: 6rem;
+              margin-top: 2rem;
+            "
+          >
+            <div style="text-align: center">
+              <img
+                src="./img/yaml.png"
+                alt="YAML"
+                style="max-width: 300px; width: 100%; height: 230px"
+              />
+            </div>
+            <div style="text-align: center">
+              <img
+                src="./img/toml.png"
+                alt="TOML"
+                style="max-width: 270px; width: 100%; height: 230px"
+              />
+            </div>
+          </div>
+        </section>
+
+        <section>
+          <h2>What is YAML?</h2>
+          <pre><code>person:
+		name: "MargoMint"
+		age: 22
+		skills:
+			- JavaScript
+			- TypeScript
+			- Public Speaking
+			- HTML
+			- CSS
+			- etc
+</code></pre>
+        </section>
+
+        <section>
+          <h2>What is TOML?</h2>
+          <pre><code>[person]
+name = "MargoMint"
+age = 22
+skills = ["JavaScript", "TypeScript", "Public Speaking", "HTML", 
+					"CSS", "etc"]						
+</code></pre>
+        </section>
+
+        <section>
+          <h2 style="font-size: 64px">Comparison</h2>
+          <table style="font-size: 22px">
+            <thead>
+              <tr>
+                <th>Feature</th>
+                <th>JSON</th>
+                <th>YAML</th>
+                <th>TOML</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Easy to read</td>
+                <td>Medium</td>
+                <td>High</td>
+                <td>High</td>
+              </tr>
+              <tr>
+                <td>Supports comments</td>
+                <td>No</td>
+                <td>Yes</td>
+                <td>Yes</td>
+              </tr>
+              <tr>
+                <td>Strict syntax</td>
+                <td>Very strict</td>
+                <td>Loose (can break easily)</td>
+                <td>Strict</td>
+              </tr>
+              <tr>
+                <td>Best for</td>
+                <td>Data transfer</td>
+                <td>Configs and complex data</td>
+                <td>Config files</td>
+              </tr>
+            </tbody>
+          </table>
+        </section>
+
+        <section>
+          <h2>Final Thoughts</h2>
+          <p style="font-size: 26px">
+            JSON is not a bad choice by any means. It's a fast, straightforward
+            format that works well for many use cases, especially when
+            transferring data between systems.
+          </p>
+        </section>
+
+        <section data-markdown>
+          <textarea data-template>
+				## Thanks for your time and attention!
+					</textarea
+          >
+        </section>
+      </div>
+    </div>
+
+    <script src="dist/reveal.js"></script>
+    <script src="plugin/notes/notes.js"></script>
+    <script src="plugin/markdown/markdown.js"></script>
+    <script src="plugin/highlight/highlight.js"></script>
+    <script>
+      // More info about initialization & config:
+      // - https://revealjs.com/initialization/
+      // - https://revealjs.com/config/
+      Reveal.initialize({
+        hash: true,
+
+        // Learn about plugins: https://revealjs.com/plugins/
+        plugins: [RevealMarkdown, RevealHighlight, RevealNotes],
+      });
+    </script>
+    <script
+      type="text/javascript"
+      src="https://ssl.gstatic.com/trends_nrtr/4031_RC01/embed_loader.js"
+    ></script>
+    <script type="text/javascript">
+      Reveal.on('slidechanged', function (event) {
+        if (
+          event.currentSlide.querySelector('#trends-chart') &&
+          !event.currentSlide.dataset.chartLoaded
+        ) {
+          event.currentSlide.dataset.chartLoaded = true; // Чтобы не загружать несколько раз при возврате на слайд
+          trends.embed.renderExploreWidget(
+            'TIMESERIES',
+            {
+              comparisonItem: [
+                { keyword: 'JSON', geo: '', time: '2004-01-01 2025-04-26' },
+                { keyword: 'XML', geo: '', time: '2004-01-01 2025-04-26' },
+              ],
+              category: 0,
+              property: '',
+            },
+            {
+              exploreQuery: 'date=all&q=JSON,XML&hl=en',
+              guestPath: 'https://trends.google.com:443/trends/embed/',
+            }
+          );
+        }
+      });
+    </script>
+  </body>
+</html>
